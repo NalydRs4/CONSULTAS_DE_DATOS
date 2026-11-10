@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+    version="3.0">
+
+    <persistence-unit name="UnidadPersistencia" transaction-type="RESOURCE_LOCAL">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>com.nomadaware.entities.Producto</class>
+        <class>com.nomadaware.entities.Categoria</class>
+        <class>com.nomadaware.entities.Factura</class>
+        <class>com.nomadaware.entities.Cliente</class>
+        <class>com.nomadaware.entities.DetalleFactura</class>
+        <class>com.nomadaware.entities.MetodoPago</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+            <property name="jakarta.persistence.jdbc.url"
+                value="jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databaseName=bd_nomadaware;encrypt=true;trustServerCertificate=true;" />
+            <property name="jakarta.persistence.jdbc.user" value="sa" />
+            <property name="jakarta.persistence.jdbc.password" value="123456" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.connection.provider_class"
+                value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider" />
+            <property name="hibernate.hikari.maximumPoolSize" value="10" />
+
+        </properties>
+    </persistence-unit>
+</persistence>
